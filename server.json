@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.macaroonnetwork/bible-evidence",
+  "title": "Macaroon Bible Evidence",
+  "description": "Read-only BSB and WEB Scripture evidence with provenance, context, comparison, and search.",
+  "repository": {
+    "url": "https://github.com/kevmoz/macaroon-bible-evidence-mcp",
+    "source": "github"
+  },
+  "version": "0.3.0",
+  "websiteUrl": "https://macaroonnetwork.com/bible-api",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.macaroonnetwork.com/mcp-faith-evidence-v1/mcp/"
+    }
+  ]
+}
