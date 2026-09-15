@@ -29,7 +29,7 @@ No wallet, purchase, or execution tool is exposed — this server is read-only b
 | `faith_service_evidence` | Get validation evidence and limitations for one public Christian Faith service. |
 | `faith_service_page` | Get an external Macaroon page without executing or paying for a service. |
 
-## Connect
+## Connect (hosted, no install)
 
 Point any MCP-capable client (Claude, Cursor, Windsurf, etc.) at the Streamable HTTP
 endpoint above. No API key or configuration is required.
@@ -39,6 +39,25 @@ endpoint above. No API key or configuration is required.
   "mcpServers": {
     "macaroon-bible-evidence": {
       "url": "https://api.macaroonnetwork.com/mcp-faith-evidence-v1/mcp/"
+    }
+  }
+}
+```
+
+## Connect (local stdio)
+
+The same server also runs locally over stdio. Not yet published to PyPI —
+install straight from this repo:
+
+```bash
+pip install git+https://github.com/kevmoz/macaroon-bible-evidence-mcp.git
+```
+
+```json
+{
+  "mcpServers": {
+    "macaroon-bible-evidence": {
+      "command": "macaroon-bible-evidence-mcp"
     }
   }
 }

@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "macaroon-bible-evidence-mcp"
+version = "0.3.0"
+description = "Read-only MCP server for source-labelled Christian Scripture evidence (BSB/WEB): lookup, context, comparison, cross-references, keyword search, and topic guides."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Kevin Smith" }]
+keywords = ["mcp", "model-context-protocol", "bible", "scripture", "christian", "faith"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+http = [
+    "starlette>=0.40.0",
+    "uvicorn>=0.30.0",
+]
+
+[project.urls]
+Homepage = "https://macaroonnetwork.com/bible-api"
+Repository = "https://github.com/kevmoz/macaroon-bible-evidence-mcp"
+
+[project.scripts]
+macaroon-bible-evidence-mcp = "macaroon_bible_evidence_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["macaroon_bible_evidence_mcp"]
