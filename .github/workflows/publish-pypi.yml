@@ -1,0 +1,31 @@
+name: Publish macaroon-bible-evidence-mcp to PyPI
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      contents: read
+      # OIDC trusted publishing -- no PyPI token stored anywhere, ever.
+      # Requires a pending trusted publisher configured on PyPI for this
+      # exact (owner, repo, workflow filename, environment) combination
+      # before the first tag push -- see README/CI notes.
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: python -m pip install --upgrade build
+      - run: python -m build
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
